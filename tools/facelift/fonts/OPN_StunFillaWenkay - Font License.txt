@@ -1,0 +1,90 @@
+
+
+
+  ######                ##      ##      ##
+  ##                    ##      ##
+  ##      ####  #####  ####     ##     ###   ####   ####  #####   ####   ####
+  ###### ##  ## ##  ##  ##      ##      ##  ##  ## ##  ## ##  ## ##     ##  ## 
+  ##     ##  ## ##  ##  ##      ##      ##  ##     #####  ##  ##  ####  #####
+  ##     ##  ## ##  ##  ##      ##      ##  ##  ## ##     ##  ##     ## ##
+  ##      ####  ##  ##   ###    ###### ####  ####   ####  ##  ##  ####   ####
+
+**************************  +----------------------+  **************************
+**************************  |Last Edit: 26 May 2008|  **************************
+**************************  +----------------------+  **************************
+
+
+Font Creator: Omar the Radwan
+email: omar@radwan.us
+website: omar.radwan.us
+
+Font Hosting: Copyright 2008 OpenPublic Networks LLC 
+website: openpublic.com
+email: opnsupport@gmail.com
+
+--------------------------------------------------------------------------------
+
+Installation Instructions:
+Windows Users:
+Install the True Type Font File (.ttf) into your Font folder:
+        Start > Settings > Control Panel > Fonts
+        or
+        C:\WINDOWS\Fonts
+
+Apple Mac Users:
+Install the True Type Font File (.ttf) into your Font folder:
+        Hard Disk > Library Folder > Fonts Folder
+
+--------------------------------------------------------------------------------
+
+Terms, Conditions, and User Agreement:
+By downloading or installing this font, you acknowledge that you have read,
+ understood, and agreed to be bound by the terms and conditions of
+ this agreement:
+
+1.  Omar the Radwan's Font License agreement is subject to US Law.
+
+2. This Font is 100% free for all non-commercial use ONLY.
+
+3. Omar the Radwan's Fonts may not be redistributed, sold, modified,
+ adapted, adjusted, translated, reverse engineered, disassembled, decompiled,
+ or mirror hosted in any way.
+
+4. Omar the Radwan offers no warranties, express or implied, for the font
+ provided.  Omar the Radwan shall in no event be held responsible for direct,
+ indirect, incidental, or third party damages resulting from it's use; nor any
+ loss of business profits, business interruptions, or loss of resources arising
+ from it's use.  This is a free download and should be used at your own risk and
+ absolutely no monetary compensation will be made resulting in any of the above
+ scenarios.
+
+--------------------------------------------------------------------------------
+                                                             
+                                   _,qyM##gmg_               
+                                _gQM00M#M0M0#M0p,            
+                              _g0NBN##0&M00&#MNN#&           
+                            _g0MN##0MMM0MM0Q&MKN#M&          
+                           /0M&MMNN00M00M00#0Q#0&#M0   
+                          yM0QMRM0##N00#00#00M#0000&&  
+                         ]M000M000MBNM#K&#0#BM00NQM0Q1 
+                         #N#0M@``"00000##M00M0000&00#& 
+                         4000'     `N#MMQ0#00Q#0##NQ08 
+                          4#`       ]#N0M0MNMMM@0NM00& 
+                                     #0M0MMM#000MM00MI 
+                                      QR##M0Y   30MMNf       
+                                      BN##00$   ]QNM#        
+                             _ppmw    ]0#0#N'   4M0#'        
+                             "~        00M1      #MX         
+                                       0000      ^^          
+                                       00M0p,                
+                                      jM00N#Np               
+                              *&g     BMM0000M               
+                               0NNg ,#N0M#N##0L              
+                               QqpMB0M0MMMMMQM6              
+                               0#0#0N#N00#0Q0F               
+                               M00M0##M0M0NQ^                
+                               4N0#0NH00&00                  
+                                "0NM0#00NP                   
+                                   `~@@"                     
+                                                             
+                                                       
