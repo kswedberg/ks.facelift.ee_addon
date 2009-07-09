@@ -43,10 +43,10 @@ class Facelift {
         
         // fetch params
         $default_css = array(
-          'background_color' => ($TMPL->fetch_param('background_color')) ? $TMPL->fetch_param('background_color') : '',
-          'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : $default_color,
+          'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
+          'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
           'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
-          'font_size'        => ($TMPL->fetch_param('font_size')) ? $TMPL->fetch_param('font_size') : $default_font_size,
+          'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
           'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
           'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
           'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
@@ -58,8 +58,9 @@ class Facelift {
           'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
         );
         
-        $width = ($TMPL>fetch_param('width')) ? 'w=' . $TMPL>fetch_param('width') . '&' : '';
-        $height = 'h=' . $default_css['font_size'] . '&';
+        $width = ($TMPL->fetch_param('width')) ? 'w=' . str_replace('px', '', $TMPL->fetch_param('width')) . '&' : '';
+        $height = ($TMPL->fetch_param('height') && $TMPL->fetch_param('height') >= $default_css['font_size']) ? str_replace('px', '', $TMPL->fetch_param('height')) : $default_css['font_size'];
+        $height = 'h=' . $height . '&';
         $css = implode('|', $default_css);
 
         $flir = '';
