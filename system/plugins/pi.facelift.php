@@ -66,7 +66,8 @@ class Facelift {
         $pretext = $TMPL->tagdata;
         $text_parts = preg_split("/<br.*>/", $pretext);
         foreach ($text_parts as $text) {
-          $urlText = urlencode($text);
+          $urlText = ($TMPL->fetch_param('text_transform') == 'uppercase') ? strtoupper($text) : $text;
+          $urlText = urlencode($urlText);
           $altText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false);
           $img = '<img src="' . $path_to_flir . 'generate.php?t=' . $urlText . '&' . $width . $height . 'c='. $css . '&d=96&f=%7B%7D" alt="' . $altText . '" />';
           $flir .= '<span class="flir-replaced">' . $img . '</span>';
