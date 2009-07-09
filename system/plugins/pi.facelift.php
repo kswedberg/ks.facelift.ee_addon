@@ -57,6 +57,8 @@ class Facelift {
           'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
           'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
         );
+        
+        $width = ($TMPL>fetch_param('width')) ? 'w=' . $TMPL>fetch_param('width') . '&' : '';
         $height = 'h=' . $default_css['font_size'] . '&';
         $css = implode('|', $default_css);
 
@@ -66,7 +68,7 @@ class Facelift {
         foreach ($text_parts as $text) {
           $urlText = urlencode($text);
           $altText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false);
-          $img = '<img src="' . $path_to_flir . 'generate.php?t=' . $urlText . '&' . $height . 'c='. $css . '&d=96&f=%7B%7D" alt="' . $altText . '" />';
+          $img = '<img src="' . $path_to_flir . 'generate.php?t=' . $urlText . '&' . $width . $height . 'c='. $css . '&d=96&f=%7B%7D" alt="' . $altText . '" />';
           $flir .= '<span class="flir-replaced">' . $img . '</span>';
 
           // $img = '<img src="' . $path_to_flir . 'generate.php?t=' . $urlText . '&' . $height . 'c='. $css . '&d=96&f=%7B%7D" alt="" />';
