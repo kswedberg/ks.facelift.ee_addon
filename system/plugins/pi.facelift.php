@@ -39,11 +39,12 @@ class Facelift {
         // configure defaults
         $path_to_flir = '/tools/facelift/';
         $default_font_size = '70';
+        $default_color = '999999';
         
         // fetch params
         $default_css = array(
           'background_color' => ($TMPL->fetch_param('background_color')) ? $TMPL->fetch_param('background_color') : '',
-          'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : '',
+          'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : $default_color,
           'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
           'font_size'        => ($TMPL->fetch_param('font_size')) ? $TMPL->fetch_param('font_size') : $default_font_size,
           'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
