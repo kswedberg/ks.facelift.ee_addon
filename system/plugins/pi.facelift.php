@@ -32,19 +32,20 @@ class Facelift {
 
     var $return_data;
 
-    
-
     function Facelift()
     {
-        global $TMPL;                
-        // fetch params
+        global $TMPL;
+
+        // configure defaults
         $path_to_flir = '/tools/facelift/';
+        $default_font_size = '70';
         
+        // fetch params
         $default_css = array(
           'background_color' => ($TMPL->fetch_param('background_color')) ? $TMPL->fetch_param('background_color') : '',
           'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : '',
           'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
-          'font_size'        => ($TMPL->fetch_param('font_size')) ? $TMPL->fetch_param('font_size') : '30',
+          'font_size'        => ($TMPL->fetch_param('font_size')) ? $TMPL->fetch_param('font_size') : $default_font_size,
           'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
           'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
           'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
