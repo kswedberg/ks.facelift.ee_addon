@@ -43,14 +43,13 @@ define('HBOUNDS_TEXT', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz[]{}
 
 // Each font you want to use should have an entry in the fonts array.
 $fonts = array();
-$fonts['dineng'] = 'DINEngschrift.otf';
 $fonts['tribalbenji'] 	= 'Tribal_Font.ttf';
 $fonts['illuminating'] 	= 'ArtOfIlluminating.ttf';
 $fonts['konstytucyja'] 	= 'Konstytucyja_1.ttf';
 $fonts['stunfilla'] 	= 'OPN_StunFillaWenkay.ttf';
 $fonts['animaldings'] 	= 'Animal_Silhouette.ttf';
 // The font will default to the following (put your most common font here).
-$fonts['default']    = $fonts['dineng'];
+$fonts['default']    = $fonts['konstytucyja'];
 
 
 // font-stretch:condensed; font-style:italic; font-variant:small-caps; font-weight: bold; text-decoration:underline
