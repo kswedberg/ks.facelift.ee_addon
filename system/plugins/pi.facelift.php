@@ -42,7 +42,7 @@ class Facelift {
         
         $default_css = array(
           'background_color' => ($TMPL->fetch_param('background_color')) ? $TMPL->fetch_param('background_color') : '',
-          'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : '000000',
+          'color'            => ($TMPL->fetch_param('color')) ? $TMPL->fetch_param('color') : '',
           'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
           'font_size'        => ($TMPL->fetch_param('font_size')) ? $TMPL->fetch_param('font_size') : '30',
           'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
