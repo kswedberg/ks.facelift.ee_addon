@@ -40,25 +40,94 @@ class Facelift {
         $path_to_flir = '/tools/facelift/';
         $default_font_size = '70';
         $default_color = '999999';
+        $text_transform = $TMPL->fetch_param('text_transform') ? $TMPL->fetch_param('text_transform') : '';
+        $width = ($TMPL->fetch_param('width')) ? 'w=' . str_replace('px', '', $TMPL->fetch_param('width')) . '&' : '';
         
-        // fetch params
-        $default_css = array(
-          'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
-          'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
-          'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
-          'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
-          'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
-          'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
-          'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
-          'font_stretch'     => ($TMPL->fetch_param('font_stretch')) ? $TMPL->fetch_param('font_stretch') : '',
-          'font_style'       => ($TMPL->fetch_param('font_style')) ? $TMPL->fetch_param('font_style') : '',
-          'font_variant'     => ($TMPL->fetch_param('font_variant')) ? $TMPL->fetch_param('font_variant') : '',
-          'font_weight'      => ($TMPL->fetch_param('font_weight')) ? $TMPL->fetch_param('font_weight') : '',
-          'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
-          'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
+         // default style sets
+        $sets = array(
+          'intro' => array(
+            'background_color' => '',
+            'color'            => '999999',
+            'font_family'      => '',
+            'font_size'        => '40',
+            'letter_spacing'   => '',
+            'line_height'      => '1.1',
+            'text_align'       => '',
+            'font_stretch'     => '',
+            'font_style'       => '',
+            'font_variant'     => '',
+            'font_weight'      => '',
+            'opacity'          => '',
+            'text_decoration'  => '',
+            'text_transform'   => '',
+            'width'            => '610',
+          ),
+          'title' => array(
+            'background_color' => '',
+            'color'            => 'ffffff',
+            'font_family'      => '',
+            'font_size'        => '50',
+            'letter_spacing'   => '',
+            'line_height'      => '',
+            'text_align'       => '',
+            'font_stretch'     => '',
+            'font_style'       => '',
+            'font_variant'     => '',
+            'font_weight'      => '',
+            'opacity'          => '',
+            'text_decoration'  => '',
+            'text_transform'   => 'uppercase',
+            'width'            => '210',
+          ),
+          'links' => array(
+            'background_color' => '',
+            'color'            => '0098b2',
+            'font_family'      => '',
+            'font_size'        => '18',
+            'letter_spacing'   => '',
+            'line_height'      => '',
+            'text_align'       => '',
+            'font_stretch'     => '',
+            'font_style'       => '',
+            'font_variant'     => '',
+            'font_weight'      => '',
+            'opacity'          => '',
+            'text_decoration'  => '',
+            'text_transform'   => 'uppercase',
+            'width'            => '170',
+          ),
         );
         
-        $width = ($TMPL->fetch_param('width')) ? 'w=' . str_replace('px', '', $TMPL->fetch_param('width')) . '&' : '';
+        if ($TMPL->fetch_param('set') && array_key_exists($TMPL->fetch_param('set'), $sets)) {
+          $default_css = $sets[$TMPL->fetch_param('set')];
+          $set_width = array_pop($default_css);
+          $set_text_transform = array_pop($default_css);
+          if (empty($width)) {
+            $width = 'w=' . str_replace('px', '', $set_width) . '&';
+          }
+          if (empty($text_transform)) {
+            $text_transform = $set_text_transform;
+          }
+          
+        } else {
+        // fetch params
+          $default_css = array(
+            'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
+            'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
+            'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
+            'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
+            'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
+            'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
+            'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
+            'font_stretch'     => ($TMPL->fetch_param('font_stretch')) ? $TMPL->fetch_param('font_stretch') : '',
+            'font_style'       => ($TMPL->fetch_param('font_style')) ? $TMPL->fetch_param('font_style') : '',
+            'font_variant'     => ($TMPL->fetch_param('font_variant')) ? $TMPL->fetch_param('font_variant') : '',
+            'font_weight'      => ($TMPL->fetch_param('font_weight')) ? $TMPL->fetch_param('font_weight') : '',
+            'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
+            'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
+          );
+        }
+        
         $height = ($TMPL->fetch_param('height') && $TMPL->fetch_param('height') >= $default_css['font_size']) ? str_replace('px', '', $TMPL->fetch_param('height')) : $default_css['font_size'];
         $height = 'h=' . $height . '&';
         $css = implode('|', $default_css);
@@ -68,7 +137,7 @@ class Facelift {
         $text_parts = preg_split("/<br.*>/", $pretext);
         foreach ($text_parts as $text) {
           $urlText = htmlspecialchars_decode($text, ENT_QUOTES);
-          $urlText = ($TMPL->fetch_param('text_transform') == 'uppercase') ? strtoupper($urlText) : $urlText;
+          $urlText = ($text_transform == 'uppercase') ? strtoupper($urlText) : $urlText;
 
           $urlText = urlencode($urlText);
           $altText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false);
