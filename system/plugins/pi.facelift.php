@@ -98,6 +98,22 @@ class Facelift {
           ),
         );
         
+        $params = array(
+          'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
+          'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
+          'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
+          'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
+          'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
+          'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
+          'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
+          'font_stretch'     => ($TMPL->fetch_param('font_stretch')) ? $TMPL->fetch_param('font_stretch') : '',
+          'font_style'       => ($TMPL->fetch_param('font_style')) ? $TMPL->fetch_param('font_style') : '',
+          'font_variant'     => ($TMPL->fetch_param('font_variant')) ? $TMPL->fetch_param('font_variant') : '',
+          'font_weight'      => ($TMPL->fetch_param('font_weight')) ? $TMPL->fetch_param('font_weight') : '',
+          'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
+          'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
+        );
+        
         if ($TMPL->fetch_param('set') && array_key_exists($TMPL->fetch_param('set'), $sets)) {
           $default_css = $sets[$TMPL->fetch_param('set')];
           $set_width = array_pop($default_css);
@@ -109,23 +125,14 @@ class Facelift {
             $text_transform = $set_text_transform;
           }
           
+          foreach ($default_css as $prop => $value) {
+            if (!empty($params[$prop])) {
+              $default_css[$prop] = $params[$prop];
+            }
+          }
         } else {
         // fetch params
-          $default_css = array(
-            'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
-            'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
-            'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
-            'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
-            'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
-            'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
-            'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
-            'font_stretch'     => ($TMPL->fetch_param('font_stretch')) ? $TMPL->fetch_param('font_stretch') : '',
-            'font_style'       => ($TMPL->fetch_param('font_style')) ? $TMPL->fetch_param('font_style') : '',
-            'font_variant'     => ($TMPL->fetch_param('font_variant')) ? $TMPL->fetch_param('font_variant') : '',
-            'font_weight'      => ($TMPL->fetch_param('font_weight')) ? $TMPL->fetch_param('font_weight') : '',
-            'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
-            'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
-          );
+          $default_css = $params;
         }
         
         $height = ($TMPL->fetch_param('height') && $TMPL->fetch_param('height') >= $default_css['font_size']) ? str_replace('px', '', $TMPL->fetch_param('height')) : $default_css['font_size'];
