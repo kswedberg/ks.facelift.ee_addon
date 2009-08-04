@@ -97,12 +97,12 @@ class Facelift {
             'width'            => '170',
           ),
         );
-        
-        $params = array(
+        $default_css = array();
+        $css_params = array(
           'background_color' => ($TMPL->fetch_param('background_color')) ? str_replace('#', '', $TMPL->fetch_param('background_color')) : '',
-          'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : $default_color,
+          'color'            => ($TMPL->fetch_param('color')) ? str_replace('#', '', $TMPL->fetch_param('color')) : '',
           'font_family'      => ($TMPL->fetch_param('font_family')) ? $TMPL->fetch_param('font_family') : '',
-          'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : $default_font_size,
+          'font_size'        => ($TMPL->fetch_param('font_size')) ? str_replace('px', '', $TMPL->fetch_param('font_size')) : '',
           'letter_spacing'   => ($TMPL->fetch_param('letter_spacing')) ? $TMPL->fetch_param('letter_spacing') : '',
           'line_height'      => ($TMPL->fetch_param('line_height')) ? $TMPL->fetch_param('line_height') : '',
           'text_align'       => ($TMPL->fetch_param('text_align')) ? $TMPL->fetch_param('text_align') : '',
@@ -113,8 +113,8 @@ class Facelift {
           'opacity'          => ($TMPL->fetch_param('opacity')) ? $TMPL->fetch_param('opacity') : '',
           'text_decoration'  => ($TMPL->fetch_param('text_decoration')) ? $TMPL->fetch_param('text_decoration') : '',
         );
-        
         if ($TMPL->fetch_param('set') && array_key_exists($TMPL->fetch_param('set'), $sets)) {
+        // merge sets with individual css params        
           $default_css = $sets[$TMPL->fetch_param('set')];
           $set_width = array_pop($default_css);
           $set_text_transform = array_pop($default_css);
@@ -124,16 +124,19 @@ class Facelift {
           if (empty($text_transform)) {
             $text_transform = $set_text_transform;
           }
-          
-          foreach ($default_css as $prop => $value) {
-            if (!empty($params[$prop])) {
-              $default_css[$prop] = $params[$prop];
+          foreach ($css_params as $prop => $value) {
+            if ($value) {
+              $default_css[$prop] = $value;
             }
           }
+
         } else {
-        // fetch params
-          $default_css = $params;
+        // just use params
+          $default_css = $css_params;
         }
+        $default_css['font_size'] = $default_css['font_size'] ? $default_css['font_size'] : $default_font_size;
+        $default_css['font_size'] = $default_css['font_size'] ? $default_css['font_size'] : $default_color;
+        
         
         $height = ($TMPL->fetch_param('height') && $TMPL->fetch_param('height') >= $default_css['font_size']) ? str_replace('px', '', $TMPL->fetch_param('height')) : $default_css['font_size'];
         $height = 'h=' . $height . '&';
